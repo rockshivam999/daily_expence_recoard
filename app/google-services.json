@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "428703653736",
+    "firebase_url": "https://daily-expense-records.firebaseio.com",
+    "project_id": "daily-expense-records",
+    "storage_bucket": "daily-expense-records.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428703653736:android:618eff66abcedc552f00dd",
+        "android_client_info": {
+          "package_name": "com.aptcoder.daily_expence_recoard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428703653736-skc8s1jgnhj3m8ntvpr60306om89mmgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATrdZBjHNXO9H7IOmz9lrWgiQ3ZM9Dggg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428703653736-skc8s1jgnhj3m8ntvpr60306om89mmgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:padding="2dp"
+    android:background="@drawable/border"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recoardDate"
+        android:text="30 12-2020"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        android:textStyle="bold"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        tools:listitem="@layout/single_item"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemRecycler"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/total"
+        android:text="total"
+        android:textSize="22sp"
+        android:layout_marginHorizontal="10dp"
+        android:textAlignment="textEnd"
+        android:textStyle="bold"/>
+
+</LinearLayout>
