@@ -1,7 +1,11 @@
 package com.aptcoder.daily_expence_recoard
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainactivity=DataBindingUtil.setContentView(this,R.layout.activity_main)
-        mainactivity.mainRecycler.layoutManager=LinearLayoutManager(this)
+        mainactivity.mainRecycler.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true)
         val option:FirebaseRecyclerOptions<RecyclerData> = FirebaseRecyclerOptions.Builder<RecyclerData>().setQuery(
             FirebaseDatabase.getInstance().reference,RecyclerData::class.java).build()
         adapter= MainRecyclerAdapter(option,this)
@@ -27,19 +31,36 @@ class MainActivity : AppCompatActivity() {
 
 
         mainactivity.addEntry.setOnClickListener {
-            addEntry()
+            val date=SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
+            addEntry(mainactivity.itemName.text.trim().toString(),mainactivity.price.text.toString(),date)
+        }
+        mainactivity.addEntry.setOnLongClickListener(){
+                    val dialog=Dialog(this)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(R.layout.input_dialog)
+            val name=dialog.findViewById<EditText>(R.id.dialogProductName)
+            val price=dialog.findViewById<EditText>(R.id.dialogPriceName)
+            val date=dialog.findViewById<EditText>(R.id.diaogDate)
+            val addBtn=dialog.findViewById<Button>(R.id.dialogAddRecoard)
+            addBtn.setOnClickListener {
+                addEntry(name.text.toString().trim(),price.text.toString().trim(),date.text.toString().trim())
+                dialog.dismiss()
+            }
+            dialog.show()
+
+            true
         }
 
     }
 
-    private fun addEntry() {
-        val itemname=mainactivity.itemName.text.trim().toString()
-        val price=mainactivity.price.text.trim().toString()
+    private fun addEntry(itemname:String,price:String,date:String) {
+
+
         if(itemname.isEmpty()||price.isEmpty()){
             Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
 
         }else{
-          val date=SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
+
             val ref=FirebaseDatabase.getInstance().reference.child(date)
             ref.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {

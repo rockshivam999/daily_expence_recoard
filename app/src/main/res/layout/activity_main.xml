@@ -15,9 +15,17 @@
         android:layout_height="match_parent"
         android:id="@+id/mainRecycler"
         tools:listitem="@layout/item_recycler"
-        android:layout_above="@id/bottomPannel"
+        android:layout_above="@id/message"
 
          />
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/message"
+        android:textAlignment="center"
+        android:text="Long Press Add Button to Update any particular date recoard*"
+        android:textColor="#F30606"
+        android:layout_above="@id/bottomPannel"
+        android:layout_height="wrap_content"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +52,7 @@
             android:layout_height="wrap_content"
             android:text="add"
             android:id="@+id/addEntry"/>
+
 
     </LinearLayout>
 
