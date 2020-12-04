@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         adapter= MainRecyclerAdapter(option,this)
         mainactivity.mainRecycler.adapter=adapter
 
-       // addDummyData()
 
         mainactivity.addEntry.setOnClickListener {
             addEntry()
@@ -70,42 +69,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private fun addDummyData() {
-//        val recyclerData=RecyclerData()
-//        recyclerData.oneDayData=ArrayList()
-//        recyclerData.oneDayData?.add(DataItemClass("mango","10"))
-//        recyclerData.oneDayData?.add(DataItemClass("asd","103"))
-//        recyclerData.oneDayData?.add(DataItemClass("das","150"))
-//        recyclerData.oneDayData?.add(DataItemClass("das","106"))
-//        recyclerData.oneDayData?.add(DataItemClass("das","10"))
-//        FirebaseDatabase.getInstance().reference.child("20-12-2020").setValue(recyclerData).addOnCompleteListener {
-//            if(it.isSuccessful){
-//                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show()
-//
-//            }else{
-//                Toast.makeText(this, "failes", Toast.LENGTH_SHORT).show()
-//
-//            }
-//        }
-//        FirebaseDatabase.getInstance().reference.child("21-12-2020").setValue(recyclerData).addOnCompleteListener {
-//            if(it.isSuccessful){
-//                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show()
-//
-//            }else{
-//                Toast.makeText(this, "failes", Toast.LENGTH_SHORT).show()
-//
-//            }
-//        }
-//        FirebaseDatabase.getInstance().reference.child("22-12-2020").setValue(recyclerData).addOnCompleteListener {
-//            if(it.isSuccessful){
-//                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show()
-//
-//            }else{
-//                Toast.makeText(this, "failes", Toast.LENGTH_SHORT).show()
-//
-//            }
-//        }
-//    }
 
     override fun onStart() {
         super.onStart()
